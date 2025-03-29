@@ -6,7 +6,7 @@ const Navbar = () => (
   <AppBar position="static" color="primary">
     <Toolbar>
       <Typography variant="h6" sx={{ flexGrow: 1 }}>
-        My App
+        Scooters
       </Typography>
       <Link component={RouterLink} to="/" color="inherit" underline="none" sx={{ mx: 1 }}>
         Home
