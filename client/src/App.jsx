@@ -13,24 +13,17 @@ import { userLoginHandler, userLogoutHandler } from "./hooks/useAuth";
 
 function App() {
   return (
-    <UserContext.Provider
-      value={{ ...authData, userLoginHandler, userLogoutHandler }}
-    >
-      <div id="box">
-        <Header />
-        <main>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-          </Routes>
-          <Footer />
-        </main>
-      </div>
-    </UserContext.Provider>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+      <Footer />
+    </>
   );
 }
 
