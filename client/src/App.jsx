@@ -7,9 +7,9 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Login from "./components/Login";
 import Register from "./components/Register";
-import { UserContext } from "./contexts/UserContext";
-import { authData } from "./hooks/useAuth";
-import { userLoginHandler, userLogoutHandler } from "./hooks/useAuth";
+// import { UserContext } from "./contexts/UserContext";
+// import { authData } from "./hooks/useAuth";
+// import { userLoginHandler, userLogoutHandler } from "./hooks/useAuth";
 
 function App() {
   return (
