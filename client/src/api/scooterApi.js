@@ -21,7 +21,7 @@ export const useScooters = () => {
 };
 
 export const useScooter = (scooterId) => {
-    const [scooter, setScooter] useState({});
+    const [scooter, setScooter] = useState({});
 
     useEffect(() => {
         request.get(`${baseUrl}/${scooterId}`)
@@ -42,7 +42,7 @@ export const useLatestScooters = () => {
             pageSize: 5,
             select: '_id,brand,model,imageUrl,price',
         });
-        request.get(`${baseUrls}?${searchParams.toString()}`)
+        request.get(`${baseUrl}?${searchParams.toString()}`)
             .then(setLatestScooters)
     }, [])
             .catch(err => {
