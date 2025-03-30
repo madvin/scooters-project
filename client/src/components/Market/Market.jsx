@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
-const About = () => {
+const Market = () => {
     const theme = useTheme();
 
     return (
@@ -18,7 +18,7 @@ const About = () => {
             }}
         >
             <Typography variant="h4" gutterBottom>
-                About Us
+                Market
             </Typography>
             <Typography variant="body1">
                 We are here to help you find the scooter of your dreams!
@@ -26,4 +26,4 @@ const About = () => {
         </Box>
     );
 }
-export default About;
+export default Market;

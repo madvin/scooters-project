@@ -11,8 +11,8 @@ const Navbar = () => (
       <Link component={RouterLink} to="/" color="inherit" underline="none" sx={{ mx: 1 }}>
         Home
       </Link>
-      <Link component={RouterLink} to="/about" color="inherit" underline="none" sx={{ mx: 1 }}>
-        About
+      <Link component={RouterLink} to="/market" color="inherit" underline="none" sx={{ mx: 1 }}>
+        Market
       </Link>
       <Link component={RouterLink} to="/contact" color="inherit" underline="none" sx={{ mx: 1 }}>
         Contact
