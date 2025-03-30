@@ -1,12 +1,12 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer";
-import Home from "./components/Home";
+import Home from "./components/Home/Home";
 import Market from "./components/Market/Market";
-import Contact from "./components/Contact";
-import Login from "./components/Login";
-import Register from "./components/Register";
+import Contact from "./components/Contact/Contact";
+import Login from "./components/Login/Login";
+import Register from "./components/Register/Register";
 // import { UserContext } from "./contexts/UserContext";
 // import { authData } from "./hooks/useAuth";
 // import { userLoginHandler, userLogoutHandler } from "./hooks/useAuth";
