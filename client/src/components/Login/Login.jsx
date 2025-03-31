@@ -13,7 +13,7 @@ const Login = () => {
       ml: '25%',
       alignItems: 'center',
       justifyContent: 'center',
-      height: '100vh',
+      height: '200vh',
       width: '50%',
       backgroundColor: theme.palette.background.default,
       color: theme.palette.text.primary,
