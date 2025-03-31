@@ -14,7 +14,7 @@ export default function useAuth() {
             }
         };
 
-        return request.baseRequest(method, url, data, authData.accessToken ? authOptions : options);
+        return request.baseRequest(method, url, data, accessToken ? authOptions : options);
     }, [accessToken]);
 
     const requestObject = useMemo(() => ({
