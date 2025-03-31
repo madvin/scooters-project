@@ -7,15 +7,17 @@ const Login = () => {
 
   return (
     <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: '100vh',
-        backgroundColor: theme.palette.background.default,
-        color: theme.palette.text.primary,
-      }}
+    sx={{
+      display: 'flex',
+      flexDirection: 'column',
+      ml: '25%',
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: '100vh',
+      width: '50%',
+      backgroundColor: theme.palette.background.default,
+      color: theme.palette.text.primary,
+  }}
     >
       <Typography variant="h4" gutterBottom>
         Login
