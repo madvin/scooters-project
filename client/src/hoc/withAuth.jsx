@@ -4,7 +4,7 @@ export default function withAuth(Component) {
   const WrapperComponent = (props) => {
     const authContext = useAuth();
 
-    return <Component {...props} auth={authContext} />;
-  };
+    return <Component {...props} auth={authContext} />
+  }
   return WrapperComponent;
 }
