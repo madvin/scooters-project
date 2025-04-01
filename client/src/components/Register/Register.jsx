@@ -7,6 +7,8 @@ const Register = () => {
     
     return (
         <Box
+        component="form"
+        onSubmit={loginHandler}
         sx={{
             display: 'flex',
             flexDirection: 'column',
