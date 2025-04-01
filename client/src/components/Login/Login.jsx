@@ -17,12 +17,13 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  console.log(email, password, loading);
+  
 
   const loginHandler = async () => {
-    console.log(email, password);
     
     setLoading(true);
-
+    
     try {
       const response = await login({ email, password });
       userLoginHandler(response.data);
@@ -31,8 +32,7 @@ const Login = () => {
       console.log(response.data);
     } catch (error) {
       toast.error(error?.response?.data?.message || 'Login failed!');
-      console.log('KOSTAAA');
-      
+     
     } finally {
       setLoading(false);
     }
