@@ -1,9 +1,11 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import { useScooters } from "../../hooks/useScooters";
 
 const Market = () => {
     const theme = useTheme();
+    const  { scooters } = useScooters();
 
     return (
         <Box
@@ -21,7 +23,9 @@ const Market = () => {
                 Market
             </Typography>
             <Typography variant="body1">
-                We are here to help you find the scooter of your dreams!
+                { scooters .length > 0
+                    ? scooters.map(scooter => <ScooterItem key={scooter.id} {...scooter} />)
+                    : <h4 className="no-scooters">No scooters available</h4>}
             </Typography>
         </Box>
     );
