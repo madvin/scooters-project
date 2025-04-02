@@ -32,7 +32,7 @@ export const useLatestScooters = () => {
 
     useEffect(() => {
         const searchParams = new URLSearchParams({
-            sortBy: '_createOn desc',
+            sortBy: '_createdOn desc',
             pageSize: 5,
             select: '_id,brand,model,imageUrl,price',
         });
