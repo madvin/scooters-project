@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import { useLatestScooters } from '../../api/scooterApi';
 
 export default function Home() {

@@ -6,10 +6,10 @@ import { UserContext } from '../contexts/UserContext';
 const baseUrl = 'http://localhost:3030/users';
 
 export const useLogin = () => {
-	const login = async (email, password) => {
-		request.post(`${baseUrl}/login`, { email, password });
-	}
-	return { login }
+  const login = async (email, password) => {
+    return request.post(`${baseUrl}/login`, { email, password });
+  };
+  return { login };
 };
 
 export const useRegister = () => {
@@ -33,7 +33,7 @@ export const useLogout = () => {
     };
 
     request.get(`${baseUrl}/logout`, null, options)
-	.finally(userLogoutHandler);
+	  .finally(userLogoutHandler);
   }, [accessToken, userLogoutHandler]);
 
   return {

@@ -1,4 +1,4 @@
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import { Box } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
