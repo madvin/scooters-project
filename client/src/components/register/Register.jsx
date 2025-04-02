@@ -3,13 +3,13 @@ import { useState } from 'react';
 import { Box, TextField, Button, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { useRegister } from '../../api/authApi';
-import { useUserContext } from '../../contexts/UserContext';
+import { UserContext } from '../../contexts/UserContext';
 
 export default function Register() {
   const theme = useTheme();
   const navigate = useNavigate();
   const { register } = useRegister();
-  const { userLoginHandler } = useUserContext();
+  const { userLoginHandler } = useRegister();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
