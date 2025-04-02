@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useActionState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Box, Button, TextField, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
@@ -18,9 +18,7 @@ export default function Login() {
 
   const loginHandler = async (event) => {
     event.preventDefault();
-	console.log(email, password);
 	
-
     try {
       const authData = await login(email, password);
       userLoginHandler(authData);
@@ -33,10 +31,13 @@ export default function Login() {
     }
   };
 
+  const [_, loginAction, isPending] = useActionState(loginHandler, { email: '', password: '' });
+
   return (
     <Box
       component="form"
       onSubmit={loginHandler}
+      action={loginAction}
       sx={{
         display: 'flex',
         flexDirection: 'column',
@@ -69,7 +70,7 @@ export default function Login() {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <Button type="submit" variant="contained" color="primary" fullWidth>
+      <Button type="submit" variant="contained" color="primary" disabled={isPending} fullWidth>
         Login
       </Button>
       <Typography variant="body2" sx={{ mt: 2 }}>
