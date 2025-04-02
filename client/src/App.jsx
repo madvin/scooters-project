@@ -20,6 +20,7 @@ import Register from './components/Register/Register';
 function App() {
   return (
     <UserProvider>
+      <div id="box">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -29,6 +30,8 @@ function App() {
         <Route path="/register" element={<Register />} />
       </Routes>
       <Footer />
+      </div>
+   
     </UserProvider>
   );
 }
