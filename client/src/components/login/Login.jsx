@@ -45,7 +45,7 @@ export default function Login() {
         alignItems: 'center',
         justifyContent: 'center',
         height: '100vh',
-        width: '50%',
+        width: '100%',
         backgroundColor: theme.palette.background.default,
         color: theme.palette.text.primary,
       }}
