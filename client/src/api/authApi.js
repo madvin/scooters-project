@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { useContext } from 'react';
+import { useEffect, useContext } from 'react';
+
 import request from '../utils/request';
 import { UserContext } from '../contexts/UserContext';
 

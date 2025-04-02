@@ -3,28 +3,36 @@ const request = async (method, url, data, options = {}) => {
     if (method !== 'GET') {
         options.method = method;
     }
+
     if (data) {
-        options = { 
+        options = {
             ...options,
             headers: {
                 'Content-Type': 'application/json',
                 ...options.headers,
             },
             body: JSON.stringify(data),
-            }
         }
+    }
     
-        const response = await fetch(url, options);
-        const responseContentType = response.headers.get('Content-Type');
+    const response = await fetch(url, options);
 
-        if (!responseContentType) {
-            return;
-        }
+    const responseContentType = response.headers.get('Content-Type');
+    if (!responseContentType) {
+        return;
+    }
 
+    if (!response.ok) {
         const result = await response.json();
 
-        return result;
-    };
+        throw result;
+    }
+
+    const result = await response.json();
+
+    return result;
+
+};
 
     export default {
         get: request.bind(null, 'GET'),
