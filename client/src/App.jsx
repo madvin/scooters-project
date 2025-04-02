@@ -6,14 +6,16 @@ import UserProvider from './providers/UserProvider';
 import AuthGuard from './components/guards/AuthGuard';
 import GuestGuard from './components/guards/GuestGuard';
 
-import Navbar from './components/navbar/Navbar';
+import Header from './components/header/Header';
+import ScooterEdit from './comp'
+// import Navbar from './components/navbar/Navbar';
 import Footer from './components/Footer';
 import Home from './components/home/Home';
 import Market from './components/market/Market';
 import Contact from './components/contact/Contact';
 import Login from './components/login/Login';
 import Logout from './components/logout/Logout';
-import Register from './components/Register/Register';
+import Register from './components/register/Register';
 import ScooterDetails from './components/scoooter-details/ScooterDetails'
 
 // import { UserContext } from "./contexts/UserContext";

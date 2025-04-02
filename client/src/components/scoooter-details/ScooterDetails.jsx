@@ -8,7 +8,7 @@ import useAuth from '../../hooks/useAuth';
 export default function ScooterDetails() {
     const theme = useTheme();
     const navigate = useNavigate();
-    const { email, userId } = useAuth();
+    const { userId } = useAuth();
     const { scooterId } = useParams();
     const { scooter } = useScooter(scooterId);
     const { deleteScooter } = useDeleteScooter();
