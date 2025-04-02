@@ -1,23 +1,36 @@
 import { useState } from 'react';
 
 export default function usePersistedState(stateKey, initialState) {
-    const [state, setState] = useState(() => {
-        const persistedState = localStorage.getItem(stateKey);
-        if (!persistedState) {
-            return typeof initialState === 'function' ? initialState() : initialState;
-        }
+  const [state, setState] = useState(() => {
+    const stored = localStorage.getItem(stateKey);
 
-        const persistedStateData = JSON.parse(persistedState);
-
-        return persistedStateData;
-    });
-
-    const setPersistedState = (input) => {
-        const data = typeof input === 'function' ? input(state) : input;
-
-        const persistedData = JSON.stringify(data);
-        localStorage.setItem(stateKey, persistedData);
-        setState(data);
+    if (!stored) {
+      return typeof initialState === 'function'
+        ? initialState()
+        : initialState;
     }
-    return [state, setPersistedState]
+
+    try {
+      return JSON.parse(stored);
+    } catch (err) {
+      console.warn(`Failed to parse localStorage[${stateKey}]:`, err);
+      return typeof initialState === 'function'
+        ? initialState()
+        : initialState;
+    }
+  });
+
+  const setPersistedState = (input) => {
+    const value = typeof input === 'function' ? input(state) : input;
+
+    try {
+      localStorage.setItem(stateKey, JSON.stringify(value));
+    } catch (err) {
+      console.warn(`Failed to save to localStorage[${stateKey}]:`, err);
+    }
+
+    setState(value);
+  };
+
+  return [state, setPersistedState];
 }

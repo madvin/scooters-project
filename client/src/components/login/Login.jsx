@@ -18,7 +18,9 @@ export default function Login() {
 
   const loginHandler = async (event) => {
     event.preventDefault();
+	console.log(email, password);
 	
+
     try {
       const authData = await login(email, password);
       userLoginHandler(authData);

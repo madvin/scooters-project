@@ -43,7 +43,7 @@ export default function Home() {
             </Typography>
             <Box className="data-buttons">
               <Link
-                to={`/scooters/${scooter._id}/details`}
+                to={`/market/${scooter._id}/details`}
                 className="btn details-btn"
               >
                 Details

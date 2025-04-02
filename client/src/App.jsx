@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router';
+import { Routes, Route } from 'react-router-dom';
 import { Box, useTheme } from '@mui/material';
 
 import UserProvider from './providers/UserProvider';
@@ -16,7 +16,7 @@ import Contact from './components/contact/Contact';
 import Login from './components/login/Login';
 import Logout from './components/logout/Logout';
 import Register from './components/register/Register';
-import ScooterDetails from './components/scoooter-details/ScooterDetails'
+import ScooterDetails from './components/scooter-details/ScooterDetails'
 import ScooterCreate from './components/scooter-create/ScooterCreate';
 
 // import { UserContext } from "./contexts/UserContext";
@@ -35,7 +35,7 @@ function App() {
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            height: '100vh',
+            minHeight: '100vh',
             backgroundColor: theme.palette.background.default,
             color: theme.palette.text.primary,
             textAlign: 'center',

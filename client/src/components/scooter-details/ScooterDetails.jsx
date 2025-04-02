@@ -1,4 +1,4 @@
-import { Link, useNavigate, useParams } from 'react-router';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Box, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
@@ -54,7 +54,7 @@ export default function ScooterDetails() {
                 <p className="description">{scooter.description}</p>
                 {isOwner && (
                     <div className="buttons">
-                        <Link to={`/games/${scooterId}/edit`} className="button">Edit</Link>
+                        <Link to={`/market/${scooter._id}/details`} className="button">Edit</Link>
                         <button
                             onClick={scooterDeleteClickHandler}
                             className="button"
