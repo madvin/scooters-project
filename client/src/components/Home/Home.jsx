@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import { useLatestScooters } from '../../api/scooterApi';
 
 export default function Home() {
+  
   const theme = useTheme();
   const { latestScooters } = useLatestScooters();
 
