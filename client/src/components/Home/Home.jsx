@@ -7,6 +7,8 @@ export default function Home() {
   
   const theme = useTheme();
   const { latestScooters } = useLatestScooters();
+  console.log(latestScooters);
+  
 
   return (
     <Box
@@ -27,7 +29,7 @@ export default function Home() {
       </Typography>
 
       {latestScooters.length === 0 ? (
-        <Typography variant="h6" color="text.secondary">
+        <Typography variant="h5" color="text.secondary">
           No scooters have been added yet. Check back soon!
         </Typography>
       ) : (

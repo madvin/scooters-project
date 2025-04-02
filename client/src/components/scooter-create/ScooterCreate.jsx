@@ -33,6 +33,7 @@ export default function ScooterCreate() {
                 Create New Offer
             </Typography>
             <form onSubmit={submitAction}>
+                <input type="text" name="title" placeholder="Title" required />
                 <input type="text" name="brand" placeholder="Brand" required />
                 <input type="text" name="model" placeholder="Model" required />
                 <input type="text" name="imageUrl" placeholder="Image URL" required />
