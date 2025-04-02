@@ -10,15 +10,11 @@ export const useScooters = () => {
 
     useEffect(() => {
         request.get(baseUrl)
-            .then(result => {
-                setScooters(result);
-            })
-            .catch(err => {
-                console.error(err);
-            });
-    }, []);
-    return { scooters }
-};
+            .then(setScooters);
+        }, []);
+
+        return { scooters };
+    };
 
 export const useScooter = (scooterId) => {
     const [scooter, setScooter] = useState({});
@@ -27,9 +23,7 @@ export const useScooter = (scooterId) => {
         request.get(`${baseUrl}/${scooterId}`)
             .then(setScooter);
     }, [scooterId])
-             .catch(err => {
-                console.error(err);
-             })
+
     return { scooter };
 };
 
@@ -45,9 +39,7 @@ export const useLatestScooters = () => {
         request.get(`${baseUrl}?${searchParams.toString()}`)
             .then(setLatestScooters)
     }, [])
-            .catch(err => {
-                console.error(err);
-            })
+           
     return { latestScooters };
 };
 
