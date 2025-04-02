@@ -19,28 +19,43 @@ export default function ScooterCreate() {
 
     return (
         <Box
-            sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                height: '100vh',
-                backgroundColor: theme.palette.background.default,
-                color: theme.palette.text.primary,
-            }}
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: '100vh',
+            backgroundColor: theme.palette.background.default,
+            color: theme.palette.text.primary,
+            '& label': { mt: 2, fontWeight: 'bold' },
+            '& input, & textarea': { width: '100%', padding: 1, mb: 2 },
+            '& .btn.submit': { padding: 1, cursor: 'pointer' },
+          }}
         >
-            <Typography variant="h4" gutterBottom>
-                Create New Offer
-            </Typography>
-            <form onSubmit={submitAction}>
-                <input type="text" name="title" placeholder="Title" required />
-                <input type="text" name="brand" placeholder="Brand" required />
-                <input type="text" name="model" placeholder="Model" required />
-                <input type="text" name="imageUrl" placeholder="Image URL" required />
-                <input type="number" name="price" placeholder="Price" required />
-                <input type="text" name="description" placeholder="Description" required />
-                <button type="submit">Create</button>
-            </form>
+          <Typography variant="h4" gutterBottom>
+            Create New Offer
+          </Typography>
+          <form onSubmit={submitAction}>
+            <label htmlFor="title">Scooter title:</label>
+            <input type="text" id="title" name="title" placeholder="Title" required />
+      
+            <label htmlFor="brand">Brand:</label>
+            <input type="text" id="brand" name="brand" placeholder="Brand" required />
+      
+            <label htmlFor="model">Model:</label>
+            <input type="text" id="model" name="model" placeholder="Model" required />
+      
+            <label htmlFor="imageUrl">Image URL:</label>
+            <input type="text" id="imageUrl" name="imageUrl" placeholder="Image URL" required />
+      
+            <label htmlFor="price">Price:</label>
+            <input type="number" id="price" name="price" placeholder="Price" min="0" required />
+      
+            <label htmlFor="description">Description:</label>
+            <textarea id="description" name="description" placeholder="Description" required></textarea>
+      
+            <button className="btn submit" type="submit">Create Scooter</button>
+          </form>
         </Box>
-    )
+      );
 }

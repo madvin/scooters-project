@@ -7,7 +7,7 @@ import AuthGuard from './components/guards/AuthGuard';
 import GuestGuard from './components/guards/GuestGuard';
 
 import Header from './components/header/Header';
-import ScooterEdit from './comp'
+import ScooterEdit from './components/scooter-edit/ScooterEdit'
 // import Navbar from './components/navbar/Navbar';
 import Footer from './components/Footer';
 import Home from './components/home/Home';
