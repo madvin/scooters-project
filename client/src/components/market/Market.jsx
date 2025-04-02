@@ -23,7 +23,7 @@ const Market = () => {
         color: theme.palette.text.primary,
       }}
     >
-      <Typography variant="h4" gutterBottom>
+      {/* <Typography variant="h4" gutterBottom>
         Market
       </Typography>
       {scooters.length > 0 ? (
@@ -34,7 +34,7 @@ const Market = () => {
         <Typography variant="h6" sx={{ mt: 4 }}>
           No scooters available
         </Typography>
-      )}
+      )} */}
     </Box>
   );
 };
