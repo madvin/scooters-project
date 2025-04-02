@@ -17,6 +17,7 @@ import Login from './components/login/Login';
 import Logout from './components/logout/Logout';
 import Register from './components/register/Register';
 import ScooterDetails from './components/scoooter-details/ScooterDetails'
+import ScooterCreate from './components/scooter-create/ScooterCreate';
 
 // import { UserContext } from "./contexts/UserContext";
 // import { authData } from "./hooks/useAuth";
@@ -42,19 +43,21 @@ function App() {
           }}
       >
         <Header/>
+
         <main id="main-content">
+
         <Routes>
-        <Route index element={<Home />} />
-        <Route path="/market" element={<Market />} />
-        <Route path="/market/:scooterId/details" element={<ScooterDetails/>} />
-        <Route path="/contacts" element={<Contact />} />
-        <Route element={<AuthGuard />}>
-            <Route path="/market/create" element={<ScooterDetails />} />
-            <Route path="/market/:scooterId/edit" element={<ScooterEdit />} />
-            <Route path="/logout" element={<Logout />} />
-            </Route>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+            <Route index element={<Home />} />
+            <Route path="/market" element={<Market />} />
+            <Route path="/market/:scooterId/details" element={<ScooterDetails/>} />
+            <Route path="/contacts" element={<Contact />} />
+            <Route element={<AuthGuard />}>
+                <Route path="/market/create" element={<ScooterCreate />} />
+                <Route path="/market/:scooterId/edit" element={<ScooterEdit />} />
+                <Route path="/logout" element={<Logout />} />
+                </Route>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
       </Routes>
         </main>
    

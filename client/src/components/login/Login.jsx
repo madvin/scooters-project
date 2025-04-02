@@ -1,13 +1,35 @@
-import React from 'react';
+import { useState, useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { Box, Button, TextField, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import { toast } from 'react-toastify';
+
+import { useLogin } from '../../api/authApi';
+import { UserContext } from '../../contexts/UserContext';
 
 const Login = () => {
   const theme = useTheme();
+  const navigate = useNavigate();
+  const { userLoginHandler } = useContext(UserContext);
+  const { login } = useLogin();
 
-  const loginHandler = () => {
-    
-  }
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const loginHandler = async (event) => {
+    event.preventDefault();
+
+    try {
+      const authData = await login(email, password);
+      userLoginHandler(authData);
+
+      toast.success('Successful Login');
+
+      navigate(-1);
+    } catch (err) {
+      toast.error(err.message);
+    }
+  };
 
   return (
     <Box
@@ -33,6 +55,8 @@ const Login = () => {
         variant="outlined"
         margin="normal"
         fullWidth
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
       />
       <TextField
         label="Password"
@@ -40,11 +64,17 @@ const Login = () => {
         variant="outlined"
         margin="normal"
         fullWidth
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
       />
-      <Button variant="contained" color="primary" fullWidth>
+      <Button type="submit" variant="contained" color="primary" fullWidth>
         Login
       </Button>
+      <Typography variant="body2" sx={{ mt: 2 }}>
+        If you don't have a profile, click <Link to="/register">here</Link>
+      </Typography>
     </Box>
   );
-}
+};
+
 export default Login;

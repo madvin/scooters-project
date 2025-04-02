@@ -1,6 +1,8 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+
+import ScooterItem from './scooter-market-item/ScooterItem'
 import { useScooters } from '../../api/scooterApi'
 
 const Market = () => {

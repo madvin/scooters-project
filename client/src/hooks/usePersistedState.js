@@ -6,13 +6,12 @@ export default function usePersistedState(key, initialState) {
         if (!persistedState) {
             return typeof initialState === 'function' ? initialState() : initialState;
         }
-        try {
-            return JSON.parse(persistedState);
-        } catch (error) {
-            console.error(`Error parsing persisted state for key "${key}":`, error);
-            return initialState;
-        }
+
+        const persistedStateData = JSON.parse(persistedState);
+
+        return persistedStateData;
     });
+
     const setPersistedState = (input) => {
         const data = typeof input === 'function' ? input(state) : input;
 
@@ -20,5 +19,5 @@ export default function usePersistedState(key, initialState) {
         localStorage.setItem(key, persistedData);
         setState(data);
     }
-    return [state, setPersistedState];
+    return [state, setPersistedState]
 }
