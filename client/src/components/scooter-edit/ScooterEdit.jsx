@@ -13,6 +13,7 @@ export default function ScooterEdit() {
     const { edit } = useEditScooter();
 
     const formAction = async (formData) => {
+        
         const scooterData = Object.fromEntries(formData);
 
         await edit(scooterId, scooterData);

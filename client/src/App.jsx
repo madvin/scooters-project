@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Box, useTheme } from '@mui/material';
+import { ToastContainer } from 'react-toastify';
 
 import UserProvider from './providers/UserProvider';
 import AuthGuard from './components/guards/AuthGuard';
@@ -56,15 +57,15 @@ function App() {
                 <Route path="/market/:scooterId/edit" element={<ScooterEdit />} />
                 <Route path="/logout" element={<Logout />} />
                 </Route>
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
+            <Route element={<GuestGuard />}>
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+            </Route>
       </Routes>
         </main>
-   
+        <ToastContainer />
+        <Footer />
       </Box>
-
-      <Footer />
-     
     </UserProvider>
   );
 }

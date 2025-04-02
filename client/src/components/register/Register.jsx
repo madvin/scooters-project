@@ -1,15 +1,15 @@
-import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import { Box, TextField, Button, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { useRegister } from "../../api/authApi";
-import { UserContext } from "../../contexts/UserContext";
+import { useRegister } from '../../api/authApi';
+import { useUserContext } from '../../contexts/UserContext';
 
 export default function Register() {
   const theme = useTheme();
   const navigate = useNavigate();
   const { register } = useRegister();
-  const { userLoginHandler } = UserContext();
+  const { userLoginHandler } = useUserContext();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

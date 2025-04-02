@@ -9,12 +9,12 @@ export default function ScooterCreate() {
     const navigate = useNavigate();
     const { create: createScooter } = useCreateScooter();
 
-    const submitAction = async (formData) => {
-
-        const scooterData = Object.fromEntries(formData);
-        await createScooter(scooterData);
-
-        navigate('/market');
+    const submitAction = async (e) => {
+      e.preventDefault();
+      const data = new FormData(e.currentTarget);
+      const scooterData = Object.fromEntries(data.entries());
+      createScooter(scooterData).then(() => navigate('/market'));
+      
     };
 
     return (
