@@ -1647,9 +1647,66 @@
     			teamId: "34a1cab1-81f1-47e5-aec3-ab6c9810efe1",
     			status: "member",
     			_createdOn: 1616237272948,
-    			_updatedOn: 1616237293676
+    			_updatedOn: 1616237293676,
     		}
-    	}
+    	},
+        scooters: {
+            "16556940-95f1-43dc-9ad1-34affe32eb54": {
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                "title": "Scooter",
+                "brand": "Xiaomi",
+                "model": "X550",
+                "imageUrl": "https://www.mobilepoint.bg/wp-content/uploads/2023/02/elektricheski-skuter-xiaomi-mi-electric-scooter-m365-pro-black.jpg",
+                "price": 120,
+                "description": "A compact scooter for city with long mileage without recharge",
+                "_id": "16556940-95f1-43dc-9ad1-34affe32eb54",
+                _createdOn: 1616237272948,
+            },
+            "dd143899-b484-4f87-8b70-c78607b72d88": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "title": "Scooter",
+                "brand": "Segway",
+                "model": "Ninebot ES4",
+                "imageUrl": "https://i.ebayimg.com/images/g/dxYAAOSwGallDWjt/s-l1600.webp",
+                "price": 180,
+                "description": "A powerful scooter offering extended battery life and smooth rides.",
+                "_id": "dd143899-b484-4f87-8b70-c78607b72d88",
+            },
+            "dd143899-b484-4f87-8b70-1a3607b72d88": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "title": "Scooter",
+                "brand": "Razor",
+                "model": "E300",
+                "imageUrl": "https://muzikercdn.com/uploads/products/2544/254497/main_a632d79e.jpg",
+                "price": 150,
+                "description": "A robust scooter designed for teenagers and adults, perfect for neighborhood rides.",
+                "_id": "dd143899-b484-4f87-8b70-1a3607b72d88",
+                _createdOn: 1616237257265,
+            },
+            "dd143899-b484-4f87-8b70-1a3607b72d78": {
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                "title": "Scooter",
+                "brand": "Gotrax",
+                "model": "GXL V2",
+                "imageUrl": "https://gotrax.ca/cdn/shop/files/1_f5d7bb9e-7cbb-458c-b17d-9f7d4c5030fa.jpg?v=1731551944&width=1214",
+                "price": 130,
+                "description": "Affordable commuter scooter with pneumatic tires for smooth rides.",
+                "_id": "dd143899-b484-4f87-8b70-1a3607b72d78",
+                _createdOn: 1616236790262,
+    			_updatedOn: 1616236792930,
+            },
+            "da143899-b484-4f87-8b70-1a3607b72d12": {
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                "title": "Scooter",
+                "brand": "Hiboy",
+                "model": "S2 Pro",
+                "imageUrl": "https://electricrideco.com/cdn/shop/products/9_12.jpg?v=1674635140",
+                "price": 210,
+                "description": "High-performance scooter with superior speed and extended range.",
+                "_id": "da143899-b484-4f87-8b70-1a3607b72d12",
+                _createdOn: 1615545572296,
+            }
+        }
     };
     var rules$1 = {
     	users: {

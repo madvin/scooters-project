@@ -39,6 +39,8 @@ export const useLatestScooters = () => {
         request.get(`${baseUrl}?${searchParams.toString()}`)
             .then(setLatestScooters)
     }, [])
+    
+    
            
     return { latestScooters };
 };
