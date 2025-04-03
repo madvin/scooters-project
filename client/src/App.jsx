@@ -9,7 +9,6 @@ import GuestGuard from './components/guards/GuestGuard';
 
 import Header from './components/header/Header';
 import ScooterEdit from './components/scooter-edit/ScooterEdit'
-// import Navbar from './components/navbar/Navbar';
 import Footer from './components/Footer';
 import Home from './components/home/Home';
 import Market from './components/market/Market';
@@ -20,9 +19,6 @@ import Register from './components/register/Register';
 import ScooterDetails from './components/scooter-details/ScooterDetails'
 import ScooterCreate from './components/scooter-create/ScooterCreate';
 
-// import { UserContext } from "./contexts/UserContext";
-// import { authData } from "./hooks/useAuth";
-// import { userLoginHandler, userLogoutHandler } from "./hooks/useAuth";
 import { ThemeProvider } from '@mui/material';
 import { theme } from './theme/theme';
 
