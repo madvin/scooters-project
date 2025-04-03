@@ -1,48 +1,44 @@
+import { AppBar, Toolbar, Button, Typography, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { Box } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
-
 import useAuth from '../../hooks/useAuth';
 
 export default function Header() {
-    const { email, isAuthenticated } = useAuth();
-
-    const theme = useTheme();
-
+    const { isAuthenticated } = useAuth();
 
     return (
-        <Box
-        sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            height: '100vh',
-            backgroundColor: theme.palette.background.default,
-            color: theme.palette.text.primary,
-            textAlign: 'center',
-            padding: 2,
-          }}
-        >
-            <h1><Link className="home" to="/">Home</Link></h1>
-            <nav>
-                <Link to="/market">Market</Link>
-                {isAuthenticated
-                    ? (
-                        <div id="user">
-                            <Link to="/market/create">Create New Offer</Link>
-                            <Link to="/logout">Logout</Link>
-                            {email}
-                        </div>
-                    )
-                    : (
-                        <div id="guest">
-                            <Link to="/login">Login</Link>
-                            <Link to="/register">Register</Link>
-                        </div>
-                    )
-                }
-            </nav>
-        </Box>
+        <AppBar position="sticky">
+            <Toolbar>
+                <Typography
+                    variant="h6"
+                    component={Link}
+                    to="/"
+                    sx={{
+                        flexGrow: 1,
+                        textDecoration: 'none',
+                        color: 'inherit'
+                    }}
+                >
+                    Scooters
+                </Typography>
+
+                <Box sx={{ display: 'flex', gap: 2 }}>
+                    <Button color="inherit" component={Link} to="/">Home</Button>
+                    <Button color="inherit" component={Link} to="/market">Market</Button>
+                    <Button color="inherit" component={Link} to="/contacts">Contacts</Button>
+                    
+                    {isAuthenticated ? (
+                        <>
+                            <Button color="inherit" component={Link} to="/market/create">Create</Button>
+                            <Button color="inherit" component={Link} to="/logout">Logout</Button>
+                        </>
+                    ) : (
+                        <>
+                            <Button color="inherit" component={Link} to="/login">Login</Button>
+                            <Button color="inherit" component={Link} to="/register">Register</Button>
+                        </>
+                    )}
+                </Box>
+            </Toolbar>
+        </AppBar>
     );
 }

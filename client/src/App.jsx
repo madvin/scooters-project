@@ -23,50 +23,45 @@ import ScooterCreate from './components/scooter-create/ScooterCreate';
 // import { UserContext } from "./contexts/UserContext";
 // import { authData } from "./hooks/useAuth";
 // import { userLoginHandler, userLogoutHandler } from "./hooks/useAuth";
+import { ThemeProvider } from '@mui/material';
+import { theme } from './theme/theme';
 
 function App() {
-
-  const theme = useTheme();
-
   return (
-    <UserProvider>
-      <Box
-         sx={{
+    <ThemeProvider theme={theme}>
+      <UserProvider>
+        <Box
+          sx={{
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
             minHeight: '100vh',
             backgroundColor: theme.palette.background.default,
             color: theme.palette.text.primary,
-            textAlign: 'center',
-            padding: 2,
           }}
-      >
-        <Header/>
-
-        <main id="main-content">
-
-        <Routes>
-            <Route index element={<Home />} />
-            <Route path="/market" element={<Market />} />
-            <Route path="/market/:scooterId/details" element={<ScooterDetails/>} />
-            <Route path="/contacts" element={<Contact />} />
-            <Route element={<AuthGuard />}>
-                <Route path="/market/create" element={<ScooterCreate />} />
-                <Route path="/market/:scooterId/edit" element={<ScooterEdit />} />
-                <Route path="/logout" element={<Logout />} />
-                </Route>
-            <Route element={<GuestGuard />}>
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-            </Route>
-      </Routes>
-        </main>
-        <ToastContainer />
-        <Footer />
-      </Box>
-    </UserProvider>
+        >
+          <Header />
+          <main id="main-content">
+            <Routes>
+              <Route index element={<Home />} />
+              <Route path="/market" element={<Market />} />
+              <Route path="/market/:scooterId/details" element={<ScooterDetails/>} />
+              <Route path="/contacts" element={<Contact />} />
+              <Route element={<AuthGuard />}>
+                  <Route path="/market/create" element={<ScooterCreate />} />
+                  <Route path="/market/:scooterId/edit" element={<ScooterEdit />} />
+                  <Route path="/logout" element={<Logout />} />
+                  </Route>
+              <Route element={<GuestGuard />}>
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/register" element={<Register />} />
+              </Route>
+        </Routes>
+          </main>
+          <ToastContainer />
+          <Footer />
+        </Box>
+      </UserProvider>
+    </ThemeProvider>
   );
 }
 

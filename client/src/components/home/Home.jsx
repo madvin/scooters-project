@@ -4,11 +4,8 @@ import { Link } from 'react-router-dom';
 import { useLatestScooters } from '../../api/scooterApi';
 
 export default function Home() {
-  
   const theme = useTheme();
   const { latestScooters } = useLatestScooters();
-  console.log(latestScooters);
-  
 
   return (
     <Box
@@ -16,8 +13,7 @@ export default function Home() {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center',
-        height: '100vh',
+        minHeight: 'calc(100vh - 200px)', // Adjusted to account for header/footer
         backgroundColor: theme.palette.background.default,
         color: theme.palette.text.primary,
         textAlign: 'center',
@@ -29,9 +25,27 @@ export default function Home() {
       </Typography>
 
       {latestScooters.length === 0 ? (
-        <Typography variant="h5" color="text.secondary">
-          No scooters have been added yet. Check back soon!
-        </Typography>
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flex: 1,
+          }}
+        >
+          <Typography 
+            variant="h5" 
+            color="text.secondary"
+            sx={{
+              maxWidth: '600px',
+              padding: 3,
+              borderRadius: 2,
+              backgroundColor: 'rgba(0,0,0,0.03)',
+            }}
+          >
+            No scooters have been added yet. Check back soon!
+          </Typography>
+        </Box>
       ) : (
         latestScooters.map((scooter) => (
           <Box key={scooter._id} className="scooter" sx={{ marginBottom: 4 }}>

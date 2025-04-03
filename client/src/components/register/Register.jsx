@@ -43,7 +43,7 @@ export default function Register() {
         alignItems: 'center',
         justifyContent: 'center',
         height: '100vh',
-        width: '100%',
+        width: '50%',
         backgroundColor: theme.palette.background.default,
         color: theme.palette.text.primary,
       }}
