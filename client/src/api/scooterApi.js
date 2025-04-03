@@ -40,8 +40,6 @@ export const useLatestScooters = () => {
             .then(setLatestScooters)
     }, [])
     
-    
-           
     return { latestScooters };
 };
 
