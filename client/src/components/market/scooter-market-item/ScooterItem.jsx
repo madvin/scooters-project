@@ -31,7 +31,7 @@ export default function ScooterItem({ _id, brand, model, imageUrl, price, theme 
       </Typography>
       <Button
         component={Link}
-        to={`/scooter/${_id}/details`}
+        to={`/market/${_id}/details`}
         variant="contained"
         color="primary"
       >
