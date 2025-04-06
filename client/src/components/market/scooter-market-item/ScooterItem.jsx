@@ -8,21 +8,30 @@ export default function ScooterItem({ _id, brand, model, imageUrl, price, theme 
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center',
         backgroundColor: theme.palette.background.paper,
         color: theme.palette.text.primary,
         boxShadow: 3,
         borderRadius: 2,
-        p: 3,
-        mb: 2,
+        p: 2,
+        width: 250,
+        height: 400,
+        justifyContent: 'space-between',
+        m: 1,
       }}
     >
-      <Typography variant="h6" gutterBottom>
+      <Typography variant="h6" textAlign="center">
         {brand} {model}
       </Typography>
       <Box
         component="img"
-        sx={{ width: '100%', maxHeight: 200, objectFit: 'cover', mb: 2, borderRadius: 1 }}
+        sx={{
+          width: '100%',
+          height: 180,
+          objectFit: 'contain',
+          mb: 2,
+          borderRadius: 1,
+          backgroundColor: '#f5f5f5',
+        }}
         src={imageUrl}
         alt={`${brand} ${model}`}
       />
@@ -33,7 +42,7 @@ export default function ScooterItem({ _id, brand, model, imageUrl, price, theme 
         component={Link}
         to={`/market/${_id}/details`}
         variant="contained"
-        color="primary"
+        fullWidth
       >
         Details
       </Button>

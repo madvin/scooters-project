@@ -93,7 +93,7 @@ export default function ScooterDetails() {
               <Button
                 variant="outlined"
                 component={Link}
-                to={`/market/${scooter._id}/edit`}
+                to={`/market/${scooterId}/edit`}
               >
                 Edit
               </Button>
