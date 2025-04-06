@@ -1,61 +1,142 @@
-import { useNavigate } from 'react-router';
-import { Box, Typography } from '@mui/material';
+import { useState, useActionState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Box, Button, TextField, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import { toast } from 'react-toastify';
+
 import { useCreateScooter } from '../../api/scooterApi';
 
 export default function ScooterCreate() {
-    const theme = useTheme();
+  const theme = useTheme();
+  const navigate = useNavigate();
+  const { create: createScooter } = useCreateScooter();
 
-    const navigate = useNavigate();
-    const { create: createScooter } = useCreateScooter();
+  const [formData, setFormData] = useState({
+    title: '',
+    brand: '',
+    model: '',
+    imageUrl: '',
+    price: '',
+    description: '',
+  });
 
-    const submitAction = async (e) => {
-      e.preventDefault();
-      const data = new FormData(e.currentTarget);
-      const scooterData = Object.fromEntries(data.entries());
-      createScooter(scooterData).then(() => navigate('/market'));
-      
-    };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
-    return (
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            height: '100vh',
-            backgroundColor: theme.palette.background.default,
-            color: theme.palette.text.primary,
-            '& label': { mt: 2, fontWeight: 'bold' },
-            '& input, & textarea': { width: '100%', padding: 1, mb: 2 },
-            '& .btn.submit': { padding: 1, cursor: 'pointer' },
-          }}
-        >
-          <Typography variant="h4" gutterBottom>
-            Create New Offer
-          </Typography>
-          <form onSubmit={submitAction}>
-            <label htmlFor="title">Scooter title:</label>
-            <input type="text" id="title" name="title" placeholder="Title" required />
-      
-            <label htmlFor="brand">Brand:</label>
-            <input type="text" id="brand" name="brand" placeholder="Brand" required />
-      
-            <label htmlFor="model">Model:</label>
-            <input type="text" id="model" name="model" placeholder="Model" required />
-      
-            <label htmlFor="imageUrl">Image URL:</label>
-            <input type="text" id="imageUrl" name="imageUrl" placeholder="Image URL" required />
-      
-            <label htmlFor="price">Price:</label>
-            <input type="number" id="price" name="price" placeholder="Price" min="0" required />
-      
-            <label htmlFor="description">Description:</label>
-            <textarea id="description" name="description" placeholder="Description" required></textarea>
-      
-            <button className="btn submit" type="submit">Create Scooter</button>
-          </form>
-        </Box>
-      );
+  const createHandler = async () => {
+    try {
+      await createScooter(formData);
+      toast.success('Scooter created successfully!');
+      navigate('/market');
+    } catch (err) {
+      toast.error(err.message || 'Failed to create scooter');
+      navigate('/market');
+    }
+  };
+
+  const [_, submitAction, isPending] = useActionState(createHandler, formData);
+
+  return (
+    <Box
+      component="form"
+      onSubmit={(e) => {
+        e.preventDefault();
+        submitAction();
+      }}
+      action={submitAction}
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        ml: '25%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '100vh',
+        width: '50%',
+        backgroundColor: theme.palette.background.default,
+        color: theme.palette.text.primary,
+      }}
+    >
+      <Typography variant="h4" gutterBottom>
+        Create New Offer
+      </Typography>
+
+      <TextField
+        label="Scooter Title"
+        name="title"
+        value={formData.title}
+        onChange={handleChange}
+        variant="outlined"
+        margin="normal"
+        fullWidth
+        required
+      />
+      <TextField
+        label="Brand"
+        name="brand"
+        value={formData.brand}
+        onChange={handleChange}
+        variant="outlined"
+        margin="normal"
+        fullWidth
+        required
+      />
+      <TextField
+        label="Model"
+        name="model"
+        value={formData.model}
+        onChange={handleChange}
+        variant="outlined"
+        margin="normal"
+        fullWidth
+        required
+      />
+      <TextField
+        label="Image URL"
+        name="imageUrl"
+        value={formData.imageUrl}
+        onChange={handleChange}
+        variant="outlined"
+        margin="normal"
+        fullWidth
+        required
+      />
+      <TextField
+        label="Price"
+        name="price"
+        type="number"
+        value={formData.price}
+        onChange={handleChange}
+        variant="outlined"
+        margin="normal"
+        fullWidth
+        required
+        inputProps={{ min: 0 }}
+      />
+      <TextField
+        label="Description"
+        name="description"
+        value={formData.description}
+        onChange={handleChange}
+        variant="outlined"
+        margin="normal"
+        fullWidth
+        multiline
+        rows={4}
+        required
+      />
+
+      <Button
+        type="submit"
+        variant="contained"
+        color="primary"
+        disabled={isPending}
+        fullWidth
+        sx={{ mt: 2 }}
+      >
+        {isPending ? 'Creating...' : 'Create Scooter'}
+      </Button>
+    </Box>
+  );
 }
