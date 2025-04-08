@@ -1367,6 +1367,7 @@
                 "price": 180,
                 "description": "A powerful scooter offering extended battery life and smooth rides.",
                 "_id": "dd143899-b484-4f87-8b70-c78607b72d88",
+                _createdOn: 1616237272933,
             },
             {
                 _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
