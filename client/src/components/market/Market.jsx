@@ -15,9 +15,7 @@ const Market = () => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'flex-start',
-        height: '100vh',
-        overflowY: 'auto',
+        minHeight: 'calc(100vh - 100px)',
         p: 4,
         backgroundColor: theme.palette.background.default,
         color: theme.palette.text.primary,
@@ -26,10 +24,22 @@ const Market = () => {
       <Typography variant="h4" gutterBottom>
         Market
       </Typography>
+
       {scooters.length > 0 ? (
-        scooters.map((scooter) => (
-          <ScooterItem key={scooter._id} {...scooter} theme={theme} />
-        ))
+        <Box
+          sx={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            gap: 3,
+            mt: 2,
+            width: '100%',
+          }}
+        >
+          {scooters.map((scooter) => (
+            <ScooterItem key={scooter._id} {...scooter} theme={theme} />
+          ))}
+        </Box>
       ) : (
         <Typography variant="h6" sx={{ mt: 4 }}>
           No scooters available
