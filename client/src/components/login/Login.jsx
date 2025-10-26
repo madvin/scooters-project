@@ -17,7 +17,6 @@ export default function Login() {
   const [password, setPassword] = useState('');
 
   const loginHandler = async (event) => {
-    event.preventDefault();
 	
     try {
       const authData = await login(email, password);
@@ -36,7 +35,6 @@ export default function Login() {
   return (
     <Box
       component="form"
-      onSubmit={loginHandler}
       action={loginAction}
       sx={{
         display: 'flex',
