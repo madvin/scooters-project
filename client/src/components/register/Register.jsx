@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { Box, TextField, Button, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { useRegister } from '../../api/authApi';
-import { UserContext } from '../../contexts/UserContext';
 
 export default function Register() {
   const theme = useTheme();
